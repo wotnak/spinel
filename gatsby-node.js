@@ -5,6 +5,14 @@ exports.createPages = async ({ graphql, actions }) => {
   // query content for WordPress posts
   const result = await graphql(`
     query {
+      allWordpressPage {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
       allWordpressPost {
         edges {
           node {
@@ -20,6 +28,16 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/blog/${edge.node.slug}`,
       component: slash(postTemplate),
+      context: {
+        id: edge.node.id,
+      },
+    })
+  })
+  const pageTemplate = path.resolve(`./src/templates/page.js`)
+  result.data.allWordpressPage.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.slug}`,
+      component: slash(pageTemplate),
       context: {
         id: edge.node.id,
       },
