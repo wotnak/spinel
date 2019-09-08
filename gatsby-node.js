@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             slug
+            path
           }
         }
       }
@@ -40,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allWordpressPage.edges.forEach(edge => {
     const isFrontPage = edge.node.slug === result.data.wordpressWpFrontpage.slug
     createPage({
-      path: isFrontPage ? `/` : `/${edge.node.slug}`,
+      path: isFrontPage ? `/` : `${edge.node.path}`,
       component: slash(pageTemplate),
       context: {
         id: edge.node.id,
