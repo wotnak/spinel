@@ -5,7 +5,7 @@ const MenuLevel = ({ items }) => (
   <ul>
     { items.map( item => (
       <li>
-        <Link to={item.url}>{item.title}</Link>
+        <Link to={item.url.replace('https://spinel.pl','')}>{item.title}</Link>
         { item.children ? <MenuLevel items={item.children} /> : null }
       </li>
     ) ) }
