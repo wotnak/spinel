@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, Link, graphql } from "gatsby"
-import Layout from '../components/layout.js'
+import Layout from '../components/Layout'
 
 const Post = ({ post }) => (
   <article>

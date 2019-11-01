@@ -30,7 +30,8 @@ export default props => (
       }
     `}
     render={data => (
-      <nav>
+      <nav className="site-menu">
+        <button>Menu</button>
         <MenuLevel items={data.menu.items} {...props} />
       </nav>
     )}

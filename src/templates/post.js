@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from '../components/layout.js'
+import Layout from '../components/Layout'
 
 const PostTemplate = (props) => {
   const post = props.data.wordpressPost

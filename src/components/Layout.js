@@ -4,8 +4,8 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import "reset-css"
 import "./layout.scss"
 
-import Header from "./header"
-import Menu from './menu'
+import Header from "./Header"
+import TopBar from './TopBar'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -19,9 +19,9 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div>
+    <div className="container">
+      <TopBar />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Menu />
       <main>{children}</main>
       <footer>
         Copyright © {new Date().getFullYear()} Spinel Hydraulika-Pneumatyka. Wszelkie prawa zastrzeżone. | <Link to="/dane-osobowe">RODO</Link>
