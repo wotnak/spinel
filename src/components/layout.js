@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-import "normalize.css"
+import "reset-css"
 import "./layout.scss"
 
 import Header from "./header"
@@ -19,7 +19,14 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className="container">
+    <div
+      style={{
+        margin: `0 auto`,
+        maxWidth: 1200,
+        padding: `0px 1.0875rem 1.45rem`,
+        paddingTop: 0,
+      }}
+    >
       <Header siteTitle={data.site.siteMetadata.title} />
       <Menu />
       <main>{children}</main>
