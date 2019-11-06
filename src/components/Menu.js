@@ -25,10 +25,15 @@ const MenuLevel = ({ items }) => {
   )
 }
 
-const Menu = ({data}) => {
+const Menu = ({data, isFrontPage}) => {
   const [visible, setVisible] = useState(false);
   return (
     <nav className={`site-menu ${visible ? 'visible' : ''}`}>
+      { !isFrontPage &&
+        <Link to="/" className="logo">
+          <img src="/logo.png" alt="Spinel Hydraulika-Pneumatyka s.c."/>
+        </Link>
+      }
       <button onClick={() => setVisible(!visible)}><FontAwesomeIcon icon={faBars} /> Menu</button>
       <MenuLevel items={data.menu.items} />
     </nav>

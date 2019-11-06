@@ -6,7 +6,7 @@ import LatestBlogPostBlock from '../components/LatestBlogPostBlock'
 const PageTemplate = (props) => {
   const page = props.data.wordpressPage
   return (
-    <Layout>
+    <Layout {...props}>
       <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
       {props.path === '/' &&
         <LatestBlogPostBlock/>

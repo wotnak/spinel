@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 const PostTemplate = (props) => {
   const post = props.data.wordpressPost
   return (
-    <Layout>
+    <Layout {...props}>
       <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </Layout>

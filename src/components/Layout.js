@@ -7,7 +7,7 @@ import "./layout.scss"
 import Header from "./Header"
 import TopBar from './TopBar'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, path }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -18,13 +18,15 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const isFrontPage = path === '/'
+
   return (
-    <div className="container">
-      <TopBar />
+    <div className={`container page${isFrontPage ? ' frontPage' : ''}`}>
+      <TopBar isFrontPage={isFrontPage} />
       <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
-      <footer>
-        Copyright © {new Date().getFullYear()} Spinel Hydraulika-Pneumatyka. Wszelkie prawa zastrzeżone. | <Link to="/dane-osobowe">RODO</Link>
+      <footer class="footer">
+        Copyright © {new Date().getFullYear()} <Link to="/">Spinel Hydraulika-Pneumatyka</Link>. Wszelkie prawa zastrzeżone. | <Link to="/dane-osobowe">RODO</Link>
       </footer>
     </div>
   )

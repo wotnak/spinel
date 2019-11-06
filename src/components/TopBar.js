@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 
-const TopBar = ({ children }) => {
+const TopBar = props => {
   return (
     <div className="topbar container">
       <div className="info">
@@ -18,7 +18,7 @@ const TopBar = ({ children }) => {
           <a href="tel:774643344" className="phone"><FontAwesomeIcon icon={faPhone} /> 77 464 33 44</a>
         </div>
       </div>
-      <Menu />
+      <Menu {...props} />
     </div>
   )
 }
