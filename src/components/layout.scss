@@ -73,14 +73,14 @@ main {
 		}
 	}
 
-	@media(min-width: calc(450px + 3rem)) {
+	@media(min-width: 492px) {
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: center;
 	}
 	@media(min-width: 1000px) {
 		img {
-			width: calc((1000px - 7rem) / 4);
+			width: calc((1000px - 7.5rem) / 5);
 		}
 	}
 }
@@ -120,13 +120,13 @@ main {
 	background-color: #fff;
 	border-bottom: 1px solid $light_gray;
 
-	font-size: 12px;
-	color: #949494;
-
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 
 	.info {
+		font-size: 12px;
+		color: #949494;
 		display: flex;
 		flex-direction: column;
 		margin: 0.2rem 0.6rem;
@@ -136,6 +136,11 @@ main {
 		}
 		.contact .phone {
 			margin-left: 0.5rem;
+		}
+		@media(min-width: 700px) {
+			width: 100%;
+			flex-direction: row;
+			justify-content: space-between;
 		}
 	}
 
@@ -152,6 +157,99 @@ main {
 		}
 		& > ul {
 			display: none;
+		}
+		&.visible > ul {
+			display: flex;
+		}
+
+		li {
+			position: relative;
+			margin-left:10px;
+			margin-right:10px;
+			color:#949494;
+			height:41px;
+
+			a {
+				display:block;
+				color:black;
+				padding:5px;
+				border-bottom:3px solid white;
+
+				&:hover, &:focus {
+					border-bottom:3px solid #F6F6F6;
+					color:#87A5BC;
+				}
+			}
+		}
+		li>ul {
+			display: none;
+			position: absolute;
+			flex-direction: column;
+			bottom: 0;
+			left: 0;
+			background: white;
+			border: solid 1px $light_gray;
+			transform: translateY(100%);
+			margin-top:7px;
+			box-shadow: 0 2px 6px white;
+			white-space: nowrap;
+			padding: 4px;
+
+			li {
+				height: auto;
+				margin: 0;
+			}
+
+			a, a:hover, a:focus {
+				border-bottom: none;
+				padding: 0;
+			}
+			
+		}
+
+		@media(max-width: 699px) {
+			&>ul {
+				position: absolute;
+				left: 0;
+				top: 52px;
+				flex-direction: column;
+				background: white;
+				width: 100%;
+				border-bottom: 1px solid $light_gray;
+			}
+			li {
+				height: auto;
+				margin: 0;
+			}
+			li.expanded>ul {
+				display: flex;
+				position: relative;
+				transform: none;
+				background: #f1f1f1;
+				border: none;
+
+				a {
+					padding: 5px;
+				}
+			}
+			a {
+				padding: 10px;
+				text-align: center;
+			}
+		}
+		@media(min-width: 700px) {
+			width: 100%;
+			button {
+				display: none;
+			}
+			li:hover>ul {
+				display: flex;
+			}
+			&>ul {
+				position: relative;
+				display: flex;
+				justify-content: flex-end;
+			}
 		}
 	}
 }
