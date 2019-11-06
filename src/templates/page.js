@@ -1,12 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from '../components/Layout'
+import LatestBlogPostBlock from '../components/LatestBlogPostBlock'
 
 const PageTemplate = (props) => {
   const page = props.data.wordpressPage
   return (
     <Layout>
       <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
+      {props.path === '/' &&
+        <LatestBlogPostBlock/>
+      }
       <div dangerouslySetInnerHTML={{ __html: page.content }} />
     </Layout>
   )
