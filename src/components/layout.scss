@@ -147,6 +147,11 @@ main {
 			justify-content: space-between;
 			border-bottom: solid 1px $light_gray;
 		}
+
+		svg {
+			max-height: 12px;
+			max-width: 12px;
+		}
 	}
 
 	.site-menu {
