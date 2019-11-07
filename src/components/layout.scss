@@ -331,6 +331,12 @@ main {
 			color: #949494;
 			height: 41px;
 
+			&.mobileOnly {
+				@media(min-width: 700px) {
+					display: none;
+				}
+			}
+
 			a {
 				display: block;
 				color: black;

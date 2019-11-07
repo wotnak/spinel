@@ -12,7 +12,7 @@ const MenuLevel = ({ items }) => {
         let url = item.url.replace('https://spinel.pl','')
         if (url.trim().length === 0) url = false
         return (
-          <li key={i} className={expanded ? 'expanded' : ''}>
+          <li key={i} className={`${expanded ? 'expanded' : ''}${item.mobileOnly ? ' mobileOnly' : ''}`}>
             { url !== false ?
                 <Link to={url}>{item.title}</Link>
               :
@@ -59,6 +59,11 @@ export default props => (
       }
     `}
     
-    render={data => (<Menu data={data} {...props} />)}
+    render={data => {
+      if (data.menu.items[0].url !== '/') {
+        data.menu.items.unshift({title: 'Strona główna', url: '/', mobileOnly: true})
+      }
+      return (<Menu data={data} {...props} />)
+    }}
   />
 )
