@@ -304,6 +304,10 @@ main {
 			cursor: pointer;
 			font-weight: 700;
 			color: #949494;
+			svg {
+				max-height: 16px;
+				max-width: 16px;
+			}
 		}
 		& > ul {
 			display: none;
