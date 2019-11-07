@@ -1,13 +1,15 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from '../components/Layout'
+import Header from '../components/Header'
 
 const PostTemplate = (props) => {
   const post = props.data.wordpressPost
   return (
     <Layout {...props}>
-      <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <Header siteTitle={post.title} isFrontPage={false} />
+      <Link to="/blog/" className="back-to-blog">← Wróć na blog</Link>
+      <main dangerouslySetInnerHTML={{ __html: post.content }} />
     </Layout>
   )
 }

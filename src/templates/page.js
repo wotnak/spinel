@@ -1,17 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from '../components/Layout'
+import Header from '../components/Header'
 import LatestBlogPostBlock from '../components/LatestBlogPostBlock'
 
 const PageTemplate = (props) => {
   const page = props.data.wordpressPage
+  const isFrontPage = page.path === '/'
   return (
     <Layout {...props}>
-      <h1 dangerouslySetInnerHTML={{ __html: page.title }} />
+      <Header siteTitle={page.title} isFrontPage={isFrontPage} />
       {props.path === '/' &&
         <LatestBlogPostBlock/>
       }
-      <div dangerouslySetInnerHTML={{ __html: page.content }} />
+      <main dangerouslySetInnerHTML={{ __html: page.content }} />
     </Layout>
   )
 }
@@ -24,6 +26,7 @@ export const pageQuery = graphql`
     wordpressPage(id: { eq: $id }) {
       title
       content
+      path
     }
   }
 `

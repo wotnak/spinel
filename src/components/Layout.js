@@ -23,8 +23,7 @@ const Layout = ({ children, path }) => {
   return (
     <div className={`container page${isFrontPage ? ' frontPage' : ''}`}>
       <TopBar isFrontPage={isFrontPage} />
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <main>{children}</main>
+      {children}
       <footer class="footer">
         Copyright © {new Date().getFullYear()} <Link to="/">Spinel Hydraulika-Pneumatyka</Link>. Wszelkie prawa zastrzeżone. | <Link to="/dane-osobowe">RODO</Link>
       </footer>

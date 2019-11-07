@@ -1,25 +1,12 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <div>
-      <h1>
-        <Link to="/">
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+const Header = ({ siteTitle, isFrontPage }) => (
+  <header className={`header${isFrontPage ? ' header--home-page' : ''}`}>
+    <h1 dangerouslySetInnerHTML={{__html: siteTitle}} />
+    { isFrontPage &&
+      <p>Jesteśmy polską firmą rodzinną, działamy nieprzerwanie od 1988 roku.<br/>Zajmujemy się kompleksowo hydrauliką siłową i pneumatyką.</p>
+    }
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

@@ -2,6 +2,7 @@ import { StaticQuery, Link, graphql } from "gatsby"
 import React, { useState }from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import logo from "../../assets/logo-small.png"
 
 const MenuLevel = ({ items }) => {
   const [expanded, setExpanded] = useState(false);
@@ -31,7 +32,7 @@ const Menu = ({data, isFrontPage}) => {
     <nav className={`site-menu ${visible ? 'visible' : ''}`}>
       { !isFrontPage &&
         <Link to="/" className="logo">
-          <img src="/logo.png" alt="Spinel Hydraulika-Pneumatyka s.c."/>
+          <img src={logo} alt="Spinel Hydraulika-Pneumatyka s.c."/>
         </Link>
       }
       <button onClick={() => setVisible(!visible)}><FontAwesomeIcon icon={faBars} /> Menu</button>

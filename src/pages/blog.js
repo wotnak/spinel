@@ -1,10 +1,11 @@
 import React from "react"
 import { StaticQuery, Link, graphql } from "gatsby"
 import Layout from '../components/Layout'
+import Header from '../components/Header'
 
 const Post = ({ post }) => (
-  <article>
-    <h2><Link to={`/blog/${post.slug}`}>{post.title}</Link></h2>
+  <article className="post">
+    <h2 className="special"><Link to={`/blog/${post.slug}`} dangerouslySetInnerHTML={{__html: post.title}}/></h2>
     <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
   </article>
 )
@@ -12,7 +13,7 @@ const Post = ({ post }) => (
 const Blog = ({ posts }) => {
   return (
     <Layout>
-      <h1>Blog firmowy</h1>
+      <Header siteTitle="Blog firmowy" isFrontPage={false} />
       {posts.map(post => (<Post post={post}/>))}
     </Layout>
   )

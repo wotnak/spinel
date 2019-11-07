@@ -41,18 +41,143 @@ body {
 }
 
 main {
-	padding: 1rem 0;	
+	padding: 1rem 0;
+	padding-top: 2rem;
+	
+	&>p {
+		padding: 0 1rem;
+		@media(min-width: 700px) {
+			padding: 0 100px;
+		}
+	}
+
+	p {
+		margin: 1rem 0;
+	}
+
+	&>ul, &>ol {
+		list-style: none;
+		padding: 0 1rem;
+		@media(min-width: 700px) {
+			padding: 0 100px;
+		}
+	}
+
+	li {
+		border-left: 6px solid rgb(218,218,218);
+		background: rgb(246,246,246);
+		padding: 5px;
+		margin-bottom: 10px;
+	}
+	strong {
+		font-weight: 700;
+	}
+
+	&>h2,&>h3,&>h4,&>h5,&>h6,&>figure {
+		padding: 0 1rem;
+		@media(min-width: 700px) {
+			padding: 0 100px;
+		}
+	}
+
+	figure img {
+		max-width: 100%;
+	}
+
+	&>.tiled-gallery {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
 
+.page {
+	padding-top: 79px;
+}
+
+.post {
+	border-bottom: 1px solid $light_gray;
+	padding: 1rem 1rem;
+	@media(min-width: 700px) {
+		padding: 2rem 100px;
+	}
+	h2>a {
+		color: inherit;
+	}
+}
+
+#map {
+	border-top: 1px solid $light_gray;
+	border-bottom: 1px solid $light_gray;
+	margin: 2rem 0;
+	height: 362px;
+}
+
+.page .post:last-of-type {
+	border-bottom: none;
+}
+
+.post h3.entry-title, .page h3.entry-title{
+	margin:0 100px;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url(../../assets/headbg.jpg);
+	border-bottom: 1px solid $light_gray;
+
+	h1 {
+		text-transform: uppercase;
+		padding: 60px 0;
+		font-size: 30px;
+		color: rgb(0,86,159);
+		text-shadow: 0 0 2px rgb(221,218,255);
+		line-height: .8;
+		font-weight: 400;
+		text-align: center;
+	}
+	
+	&--home-page {
+		justify-content: initial;
+
+		h1 {
+			background: url(../../assets/logo.png) no-repeat;
+			text-indent: -99999px;
+			width: 230px;
+			height: 115px;
+			margin: 15px auto;
+		}
+		p {
+			margin: 15px auto;
+			font-weight: 600;
+			color: #00569f;
+		}
+	}
+}
 
 .wp-block-columns.has-2-columns {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 0 2rem;
+	padding: 0 1rem;
+	@media(min-width: 700px) {
+		padding: 0 100px;
+	}
 
 	@media(min-width: 700px) {
 		.wp-block-column {
+			position: relative;
+			width: calc(50% - 1rem);
+		}
+	}
+}
+
+.frontPage .wp-block-columns.has-2-columns {
+	padding: 0 2rem;
+	.wp-block-column {
+		@media(min-width: 700px) {
 			width: calc(50% - 1rem);
 		}
 	}
@@ -103,6 +228,7 @@ main {
 		align-items: center;
 		width: 150px;
 		margin: 20px;
+		padding: 0;
 		img {
 			margin-top: 20px;
 			& + img {
@@ -112,8 +238,19 @@ main {
 	}
 }
 
+.back-to-blog {
+	margin-bottom: 1rem;
+	color: #87A5BC;
+	margin: 1rem 1rem 0;
+	display: inline-block;
+	@media(min-width: 700px) {
+		margin: 1rem 100px 0;
+	}
+}
+
 .topbar {
 	position: fixed;
+	z-index: 1;
 	top: 0;
 	left: 50%;
 	transform: translateX(-50%);
@@ -296,11 +433,99 @@ main {
 	padding: 8px;
 	background: rgba(0, 86, 159,.18);
 	outline: 1px solid rgba(0, 86, 159,.42);
-	margin: 10px auto 30px;
+	margin: 1rem auto;
 	color: #156cba;
 
 	a {
 		font-weight: bold;
 		color: inherit;
 	}
+}
+
+
+/* =Tiled Gallery Default Styles
+-------------------------------------------------------------- */
+
+.tiled-gallery {
+	clear: both;
+	margin: 0;
+	overflow: hidden;
+}
+.tiled-gallery img {
+	margin: 2px !important; /* Ensure that this value isn't overridden by themes that give content images blanket margins */
+}
+.tiled-gallery .gallery-group {
+	float: left;
+	position: relative;
+}
+.tiled-gallery .tiled-gallery-item {
+	float: left;
+	margin: 0;
+	position: relative;
+	width: inherit; /* prevents ie8 bug with inline width styles */
+}
+.tiled-gallery .gallery-row {
+	 overflow: hidden;
+	 margin-bottom: 2px;
+}
+.tiled-gallery .tiled-gallery-item a { /* Needs to reset some properties for theme compatibility */
+	background: transparent;
+	border: none;
+	color: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	width: auto;
+}
+.tiled-gallery .tiled-gallery-item img,
+.tiled-gallery .tiled-gallery-item img:hover { /* Needs to reset some properties for theme compatibility */
+	background: none;
+	border: none;
+	box-shadow: none;
+	max-width: 100%;
+	padding: 0;
+	vertical-align: middle;
+}
+.tiled-gallery-caption { /* Captions */
+	background: #eee;
+	background: rgba( 255,255,255,0.8 );
+	color: #333;
+	font-size: 13px;
+	font-weight: 400;
+	overflow: hidden;
+	padding: 10px 0;
+	position: absolute;
+		bottom: 0;
+	text-indent: 10px;
+	text-overflow: ellipsis;
+	width: 100%;
+	white-space: nowrap;
+}
+.tiled-gallery .tiled-gallery-item-small .tiled-gallery-caption { /* Smaller captions */
+	font-size: 11px;
+}
+
+
+/* =Greyscale
+-------------------------------------------------------------- */
+
+.tiled-gallery .tiled-gallery-item img.grayscale {
+	position: absolute;
+		left: 0;
+		top: 0;
+}
+.tiled-gallery .tiled-gallery-item img.grayscale:hover {
+	opacity: 0;
+}
+
+
+/* =Circles Layout
+-------------------------------------------------------------- */
+
+.tiled-gallery.type-circle .tiled-gallery-item img {
+	border-radius: 50% !important; /* Ensure that circles are displayed in themes that add border-radius to all images as a default */
+}
+.tiled-gallery.type-circle .tiled-gallery-caption {
+	display: none;
+	opacity: 0;
 }
