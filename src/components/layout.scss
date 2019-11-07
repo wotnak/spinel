@@ -92,7 +92,10 @@ main {
 }
 
 .page {
-	padding-top: 79px;
+	padding-top: 51px;
+	@media(min-width: 700px) {
+		padding-top: 79px;
+	}
 }
 
 .post {
@@ -141,6 +144,11 @@ main {
 	
 	&--home-page {
 		justify-content: initial;
+
+		@media(max-width: 699px) {
+			flex-direction: column;
+			text-align: center;
+		}
 
 		h1 {
 			background: url(../../assets/logo.png) no-repeat;
