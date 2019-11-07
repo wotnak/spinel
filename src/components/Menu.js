@@ -9,7 +9,7 @@ const MenuLevel = ({ items }) => {
   return (
     <ul>
       { items.map( (item, i) => {
-        let url = item.url.replace('https://spinel.pl','')
+        let url = item.url.replace('https://panel.spinel.pl','')
         if (url.trim().length === 0) url = false
         return (
           <li key={i} className={`${expanded ? 'expanded' : ''}${item.mobileOnly ? ' mobileOnly' : ''}`}>
