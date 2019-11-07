@@ -2,6 +2,7 @@ import React from "react"
 import { StaticQuery, Link, graphql } from "gatsby"
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import { Helmet } from "react-helmet"
 
 const Post = ({ post }) => (
   <article className="post">
@@ -13,6 +14,10 @@ const Post = ({ post }) => (
 const Blog = ({ posts }) => {
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Blog | Spinel Hydraulika-Pneumatyka</title>
+      </Helmet>
       <Header siteTitle="Blog firmowy" isFrontPage={false} />
       {posts.map(post => (<Post post={post}/>))}
     </Layout>
