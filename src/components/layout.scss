@@ -337,16 +337,21 @@ main {
 				}
 			}
 
-			a {
+			.menu-item {
 				display: block;
 				color: black;
 				padding: 5px;
 				border-bottom: 3px solid white;
+				font: inherit;
+				text-transform: none;
 
-				&:hover, &:focus {
+				&:hover {
 					border-bottom: 3px solid #F6F6F6;
 					color: #87A5BC;
 				}
+			}
+			button.menu-item {
+				cursor: default;
 			}
 		}
 		li>ul {
@@ -368,11 +373,11 @@ main {
 				margin: 0;
 			}
 
-			a, a:hover, a:focus {
+			.menu-item, .menu-item:hover, .menu-item:focus {
 				border-bottom: none;
 				padding: 0;
 			}
-			
+
 		}
 
 		@media(max-width: 699px) {

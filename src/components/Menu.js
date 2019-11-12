@@ -14,9 +14,9 @@ const MenuLevel = ({ items }) => {
         return (
           <li key={i} className={`${expanded ? 'expanded' : ''}${item.mobileOnly ? ' mobileOnly' : ''}`}>
             { url !== false ?
-                <Link to={url}>{item.title}</Link>
+                <Link to={url} className="menu-item">{item.title}</Link>
               :
-                <a onClick={() => setExpanded(!expanded)}>{item.title}</a>
+                <button onClick={() => setExpanded(!expanded)} className="menu-item">{item.title}</button>
             }
             { item.children ? <MenuLevel items={item.children} /> : null }
           </li>
