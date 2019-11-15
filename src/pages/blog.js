@@ -8,6 +8,7 @@ const Post = ({ post }) => (
   <article className="post">
     <h2 className="special"><Link to={`/blog/${post.slug}`} dangerouslySetInnerHTML={{__html: post.title}}/></h2>
     <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
+    <Link to={`/blog/${post.slug}`} style={{color:"#87A5BC"}}>Czytaj dalej →</Link>
   </article>
 )
 
