@@ -553,8 +553,17 @@ main {
 	opacity: 0;
 }
 
+
+
+
 .parts.wp-block-gallery li {
     background: none;
     border: none;
     display: inline-block;
+}
+
+
+figcaption {
+    text-align: center;
+    color: #737373;
 }
