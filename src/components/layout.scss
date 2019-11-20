@@ -552,3 +552,9 @@ main {
 	display: none;
 	opacity: 0;
 }
+
+.parts.wp-block-gallery li {
+    background: none;
+    border: none;
+    display: inline-block;
+}
