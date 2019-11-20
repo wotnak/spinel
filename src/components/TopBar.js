@@ -13,14 +13,14 @@ const TopBar = props => {
     <div className="topbar container">
       <div className="info">
         <div className="hours">
-          <FontAwesomeIcon icon={faClock} /> pon-pt 7:00 - 15:00
+          <FontAwesomeIcon icon={faClock} height="12" width="12" /> pon-pt 7:00 - 15:00
         </div>
         <div className="contact">
           <a href="mailto:biuro@spinel.pl" className="email">
-            <FontAwesomeIcon icon={faEnvelope} /> biuro@spinel.pl
+            <FontAwesomeIcon icon={faEnvelope} height="12" width="12" /> biuro@spinel.pl
           </a>
           <a href="tel:774643344" className="phone">
-            <FontAwesomeIcon icon={faPhone} /> 77 464 33 44
+            <FontAwesomeIcon icon={faPhone} height="12" width="12" /> 77 464 33 44
           </a>
         </div>
       </div>
