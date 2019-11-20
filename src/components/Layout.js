@@ -12,7 +12,6 @@ const Layout = ({ children, path }) => {
     <div className={`container page${isFrontPage ? " frontPage" : ""}`}>
       <Helmet>
         <html lang="pl" />
-        <meta charSet="utf-8" />
         <link rel="icon" type="image/png" href={icon} sizes="16x16" />
       </Helmet>
       <TopBar isFrontPage={isFrontPage} />
