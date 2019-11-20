@@ -17,7 +17,7 @@ const Layout = ({ children, path }) => {
       </Helmet>
       <TopBar isFrontPage={isFrontPage} />
       {children}
-      <footer class="footer">
+      <footer className="footer">
         Copyright © {new Date().getFullYear()} <Link to="/">Spinel Hydraulika-Pneumatyka</Link>. Wszelkie prawa zastrzeżone. | <Link to="/dane-osobowe">RODO</Link>
       </footer>
     </div>
