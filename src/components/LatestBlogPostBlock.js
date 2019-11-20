@@ -5,14 +5,16 @@ export default () => (
   <StaticQuery
     query={graphql`
       query {
-        latestPost: wordpressPost(status: {eq: "publish"}) {
-            title
-            path
-          }
+        latestPost: wordpressPost(status: { eq: "publish" }) {
+          title
+          path
+        }
       }
     `}
-    render={({latestPost}) => (
-      <aside className="block--latest-post">Ostatnio na blogu: <Link to={latestPost.path}>{latestPost.title}</Link></aside>
+    render={({ latestPost }) => (
+      <aside className="block--latest-post">
+        Ostatnio na blogu: <Link to={latestPost.path}>{latestPost.title}</Link>
+      </aside>
     )}
   />
 )

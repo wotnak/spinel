@@ -1,14 +1,21 @@
 import React from "react"
 import { StaticQuery, Link, graphql } from "gatsby"
-import Layout from '../components/Layout'
-import Header from '../components/Header'
+import Layout from "../components/Layout"
+import Header from "../components/Header"
 import { Helmet } from "react-helmet"
 
 const Post = ({ post }) => (
   <article className="post">
-    <h2 className="special"><Link to={`/blog/${post.slug}`} dangerouslySetInnerHTML={{__html: post.title}}/></h2>
-    <div dangerouslySetInnerHTML={{__html: post.excerpt}} />
-    <Link to={`/blog/${post.slug}`} style={{color:"#87A5BC"}}>Czytaj dalej →</Link>
+    <h2 className="special">
+      <Link
+        to={`/blog/${post.slug}`}
+        dangerouslySetInnerHTML={{ __html: post.title }}
+      />
+    </h2>
+    <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+    <Link to={`/blog/${post.slug}`} style={{ color: "#87A5BC" }}>
+      Czytaj dalej →
+    </Link>
   </article>
 )
 
@@ -20,7 +27,9 @@ const Blog = ({ posts }) => {
         <title>Blog | Spinel Hydraulika-Pneumatyka</title>
       </Helmet>
       <Header siteTitle="Blog firmowy" isFrontPage={false} />
-      {posts.map(post => (<Post post={post}/>))}
+      {posts.map(post => (
+        <Post post={post} />
+      ))}
     </Layout>
   )
 }
@@ -41,6 +50,11 @@ export default props => (
         }
       }
     `}
-    render={data => <Blog posts={data.allWordpressPost.edges.map(edge => edge.node)} {...props} />}
+    render={data => (
+      <Blog
+        posts={data.allWordpressPost.edges.map(edge => edge.node)}
+        {...props}
+      />
+    )}
   />
 )

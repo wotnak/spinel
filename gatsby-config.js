@@ -9,38 +9,30 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Spinel Hydrualika-Pneumatyka`,
+        short_name: `Spinel`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#dadada`,
+        theme_color: `#dadada`,
         display: `minimal-ui`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        // your wordpress source
         baseUrl: `panel.spinel.pl`,
         protocol: `https`,
-        // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: false,
-        // does your site use the Advanced Custom Fields Plugin?
-        useACF: false
+        useACF: false,
       },
     },
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Source Sans Pro:400,700`
-        ],
-        display: 'swap'
-      }
+        fonts: [`Source Sans Pro:400,700`],
+        display: "swap",
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
