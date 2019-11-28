@@ -15,7 +15,7 @@ const PageTemplate = props => {
         {isFrontPage ? (
           <title>Spinel Hydraulika-Pneumatyka</title>
         ) : (
-          <title>{page.title} | Spinel Hydraulika-Pneumatyka</title>
+          <title>{page.title.replace('<br>', '')} | Spinel Hydraulika-Pneumatyka</title>
         )}
       </Helmet>
       <Header siteTitle={page.title} isFrontPage={isFrontPage} />

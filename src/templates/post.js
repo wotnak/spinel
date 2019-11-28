@@ -9,7 +9,7 @@ const PostTemplate = props => {
   return (
     <Layout {...props}>
       <Helmet>
-        <title>{post.title} | Spinel Hydraulika-Pneumatyka</title>
+        <title>{post.title.replace('<br>', '')} | Spinel Hydraulika-Pneumatyka</title>
       </Helmet>
       <Header siteTitle={post.title} isFrontPage={false} />
       <Link to="/blog/" className="back-to-blog">
