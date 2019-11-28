@@ -13,7 +13,7 @@ const Post = ({ post }) => (
       />
     </h2>
     <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-    <Link to={`/blog/${post.slug}`} style={{ color: "#87A5BC" }}>
+    <Link to={`/blog/${post.slug}`} className="read-more">
       Czytaj dalej →
     </Link>
   </article>

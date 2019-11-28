@@ -227,6 +227,10 @@ main {
     margin-bottom: 10px;
 }
 
+.read-more {
+	color: $gray_blue;
+}
+
 .authorized-service {
 	@media(min-width: 1242px) {
 		position: fixed;
