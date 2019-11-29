@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Spinel Hydrualika-Pneumatyka`,
+    siteUrl: `https://spinel.pl`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -43,5 +44,6 @@ module.exports = {
         respectDNT: true,
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
