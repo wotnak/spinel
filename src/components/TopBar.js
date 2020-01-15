@@ -13,7 +13,7 @@ const TopBar = props => {
     <div className="topbar container">
       <div className="info">
         <div className="hours">
-          <FontAwesomeIcon icon={faClock} height="12" width="12" /> pon-pt 7:00 - 15:00 <span style={{color:"#e21c2a", fontWeight:"bold",marginLeft:"3px"}}>(od 23.12 do 01.01 nieczynne)</span>
+          <FontAwesomeIcon icon={faClock} height="12" width="12" /> pon-pt 7:00 - 15:00
         </div>
         <div className="contact">
           <a href="mailto:biuro@spinel.pl" className="email">
