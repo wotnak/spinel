@@ -318,7 +318,7 @@ main {
 			font-size: 1rem;
 			cursor: pointer;
 			font-weight: 700;
-			color: #949494;
+			color: $gray;
 			svg {
 				max-height: 16px;
 				max-width: 16px;
@@ -359,6 +359,7 @@ main {
 			}
 			button.menu-item {
 				cursor: default;
+				width: 100%;
 			}
 		}
 		li>ul {
@@ -382,7 +383,6 @@ main {
 
 			.menu-item, .menu-item:hover, .menu-item:focus {
 				border-bottom: none;
-				padding: 0;
 			}
 
 		}
