@@ -30,10 +30,14 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        fonts: [`Source Sans Pro:400,700`],
-        display: "swap",
+        fonts: [
+          {
+            family: `Source Sans Pro`,
+            variants: [`400`, `700`]
+          },
+        ],
       },
     },
     {
