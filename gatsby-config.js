@@ -16,6 +16,7 @@ module.exports = {
         background_color: `#dadada`,
         theme_color: `#dadada`,
         display: `minimal-ui`,
+        icon: `assets/icon.png`
       },
     },
     {
