@@ -5,20 +5,21 @@
 $light_gray: rgb(218,218,218);
 $gray: #595959;
 $gray_blue: #405B72;
+$blue: rgb(48, 66, 98);
 
 a {
 	text-decoration: none;
 	border-bottom: solid 1px rgba(21, 108, 186, .2);
 	transition: border-color .2s;
-	color: rgb(21, 108, 186);
+	color: $blue;
 
 	&:hover, &:active, &:focus {
-		border-bottom-color: rgb(21, 108, 186);
+		border-bottom-color: lighten($blue, 20%);
 	}
 }
 
 h1, h2, h3, h4 {
-	color: rgb(0,86,159);
+	color: $blue;
 	font-size: 17px;
 	font-weight: bold;
 	padding: 5px;
@@ -137,7 +138,7 @@ main {
 		text-transform: uppercase;
 		padding: 60px 0;
 		font-size: 30px;
-		color: rgb(0,86,159);
+		color: $blue;
 		text-shadow: 0 0 2px rgb(221,218,255);
 		line-height: .8;
 		font-weight: 400;
@@ -162,7 +163,7 @@ main {
 		p {
 			margin: 15px auto;
 			font-weight: 600;
-			color: #00569f;
+			color: $blue;
 		}
 	}
 }
@@ -460,10 +461,10 @@ main {
 .block--latest-post {
 	text-align: center;
 	padding: 8px;
-	background: rgba(0, 86, 159,.18);
-	outline: 1px solid rgba(0, 86, 159,.42);
+	background: transparentize($blue, .82);
+	outline: 1px solid transparentize($blue, .58);
 	margin: 1rem auto;
-	color: #156cba;
+	color: $blue;
 
 	a {
 		font-weight: bold;
