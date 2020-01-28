@@ -356,6 +356,10 @@ main {
 					border-bottom: 3px solid #F6F6F6;
 					color: $gray_blue;
 				}
+
+				&--highlighted {
+					font-weight: 700;
+				}
 			}
 			button.menu-item {
 				cursor: default;
@@ -454,7 +458,7 @@ main {
 .footer {
 	border-top: solid 1px $light_gray;
 	color: $gray;
-	padding: 0 8px;
+	padding: 0.2rem 0.6rem;
 	font-size: 12px;
 }
 

@@ -25,7 +25,7 @@ const MenuLevel = ({ items }) => {
             ) : (
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="menu-item"
+                className="menu-item menu-item--highlighted"
               >
                 {item.title}
               </button>
