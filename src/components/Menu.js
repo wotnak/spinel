@@ -1,5 +1,5 @@
 import { StaticQuery, Link, graphql } from "gatsby"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import logo from "../../assets/logo-small.png"
@@ -40,9 +40,13 @@ const MenuLevel = ({ items }) => {
 
 const Menu = ({ data, isFrontPage }) => {
   const [visible, setVisible] = useState(false)
+  const [logoVisible, setLogoVisible] = useState(false)
+  useEffect(() => {
+    setLogoVisible(!isFrontPage)
+  })
   return (
     <nav className={`site-menu ${visible ? "visible" : ""}`}>
-      <Link to="/" className={`logo ${isFrontPage ? 'hidden' : ''}`}>
+      <Link to="/" className={`logo${logoVisible ? '' : ' hidden'}`}>
         <img src={logo} alt="Spinel Hydraulika-Pneumatyka s.c." />
       </Link>
       <button onClick={() => setVisible(!visible)}>
