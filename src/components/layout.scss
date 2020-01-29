@@ -308,7 +308,9 @@ main {
 
 	.site-menu {
 		.logo {
-			display: none;
+			&.hidden {
+				visibility: hidden;
+			}
 		}
 		button {
 			background: transparent;
@@ -355,10 +357,6 @@ main {
 				&:hover {
 					border-bottom: 3px solid #F6F6F6;
 					color: $gray_blue;
-				}
-
-				&--highlighted {
-					font-weight: 700;
 				}
 			}
 			button.menu-item {
@@ -458,7 +456,7 @@ main {
 .footer {
 	border-top: solid 1px $light_gray;
 	color: $gray;
-	padding: 0.2rem 0.6rem;
+	padding: 0 8px;
 	font-size: 12px;
 }
 

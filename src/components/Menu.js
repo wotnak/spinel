@@ -25,7 +25,7 @@ const MenuLevel = ({ items }) => {
             ) : (
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="menu-item menu-item--highlighted"
+                className="menu-item"
               >
                 {item.title}
               </button>
@@ -42,11 +42,9 @@ const Menu = ({ data, isFrontPage }) => {
   const [visible, setVisible] = useState(false)
   return (
     <nav className={`site-menu ${visible ? "visible" : ""}`}>
-      {!isFrontPage && (
-        <Link to="/" className="logo">
-          <img src={logo} alt="Spinel Hydraulika-Pneumatyka s.c." />
-        </Link>
-      )}
+      <Link to="/" className={`logo ${isFrontPage ? 'hidden' : ''}`}>
+        <img src={logo} alt="Spinel Hydraulika-Pneumatyka s.c." />
+      </Link>
       <button onClick={() => setVisible(!visible)}>
         <FontAwesomeIcon icon={faBars} /> Menu
       </button>
