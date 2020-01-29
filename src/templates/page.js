@@ -9,7 +9,7 @@ const PageTemplate = props => {
   const page = props.data.wordpressPage
   const isFrontPage = page.path === "/"
   return (
-    <Layout {...props}>
+    <Layout children={props.children} isFrontPage={isFrontPage}>
       <Helmet>
         <meta charSet="utf-8" />
         {isFrontPage ? (

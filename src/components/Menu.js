@@ -40,13 +40,9 @@ const MenuLevel = ({ items }) => {
 
 const Menu = ({ data, isFrontPage }) => {
   const [visible, setVisible] = useState(false)
-  const [logoVisible, setLogoVisible] = useState(false)
-  useEffect(() => {
-    setLogoVisible(!isFrontPage)
-  })
   return (
     <nav className={`site-menu ${visible ? "visible" : ""}`}>
-      <Link to="/" className={`logo${logoVisible ? '' : ' hidden'}`}>
+      <Link to="/" className="logo">
         <img src={logo} alt="Spinel Hydraulika-Pneumatyka s.c." />
       </Link>
       <button onClick={() => setVisible(!visible)}>

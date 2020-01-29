@@ -6,8 +6,7 @@ import "./layout.scss"
 import icon from "../../assets/icon.png"
 import TopBar from "./TopBar"
 
-const Layout = ({ children, path }) => {
-  const isFrontPage = path === "/"
+const Layout = ({ children, isFrontPage}) => {
   return (
     <div className={`container page${isFrontPage ? " frontPage" : ""}`}>
       <Helmet>

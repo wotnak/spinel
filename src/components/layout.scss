@@ -307,11 +307,6 @@ main {
 	}
 
 	.site-menu {
-		.logo {
-			&.hidden {
-				visibility: hidden;
-			}
-		}
 		button {
 			background: transparent;
 			border: none;
@@ -446,6 +441,9 @@ main {
 .frontPage .site-menu {
 	@media(min-width: 700px) {
 		justify-content: flex-end;
+	}
+	.logo {
+		visibility: hidden;
 	}
 }
 
