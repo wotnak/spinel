@@ -26,6 +26,15 @@ module.exports = {
         protocol: `https`,
         hostingWPCOM: false,
         useACF: false,
+        plugins: [
+          {
+            resolve: `gatsby-wordpress-inline-images`,
+            options: {
+              baseUrl: `panel.spinel.pl`,
+              protocol: `https`
+            },
+          },
+        ],
       },
     },
     `gatsby-plugin-sass`,
