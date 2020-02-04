@@ -35,6 +35,7 @@ module.exports = {
         fonts: [
           {
             family: `Source Sans Pro`,
+            subsets: [`latin-ext`],
             variants: [`400`, `700`]
           },
         ],
