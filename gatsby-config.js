@@ -58,5 +58,6 @@ module.exports = {
         siteUrl: `https://spinel.pl`,
       },
     },
+    `gatsby-plugin-catch-links`,
   ],
 }
