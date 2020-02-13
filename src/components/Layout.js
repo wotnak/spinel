@@ -5,6 +5,7 @@ import "reset-css"
 import "./layout.scss"
 import icon from "../../assets/icon.png"
 import TopBar from "./TopBar"
+import AuthorizedService from "./AuthorizedService"
 
 const Layout = ({ children, isFrontPage}) => {
   return (
@@ -15,6 +16,7 @@ const Layout = ({ children, isFrontPage}) => {
       </Helmet>
       <TopBar isFrontPage={isFrontPage} />
       {children}
+      <AuthorizedService />
       <footer className="footer">
         Copyright © {new Date().getFullYear()}{" "}
         <Link to="/">Spinel Hydraulika-Pneumatyka</Link>. Wszelkie prawa

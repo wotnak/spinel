@@ -1,3 +1,5 @@
+const path = require(`path`)
+
 module.exports = {
   siteMetadata: {
     title: `Spinel Hydrualika-Pneumatyka`,
@@ -5,6 +7,10 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { path: path.join(__dirname, `assets`) },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
