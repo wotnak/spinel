@@ -10,21 +10,21 @@ export default props => (
         baer: file(relativePath: { eq: "baer.png" }) {
           childImageSharp {
             fixed(width: 119, height: 58) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_tracedSVG
             }
           }
         }
         dhollandia: file(relativePath: { eq: "dhollandia.png" }) {
           childImageSharp {
             fixed(width: 150, height: 58) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_tracedSVG
             }
           }
         }
         dautel: file(relativePath: { eq: "dautel.png" }) {
           childImageSharp {
             fixed(width: 150, height: 55) {
-              ...GatsbyImageSharpFixed
+              ...GatsbyImageSharpFixed_tracedSVG
             }
           }
         }
