@@ -433,6 +433,9 @@ main {
 				padding: 10px;
 				text-align: center;
 			}
+			.logo {
+				display: none;
+			}
 		}
 		@media(min-width: 700px) {
 			width: 100%;
