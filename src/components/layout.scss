@@ -147,8 +147,12 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: url(../../assets/headbg.jpg);
 	border-bottom: 1px solid $light_gray;
+	&:after, &:before {
+		background-position: initial !important;
+		background-size: initial !important;
+		background-repeat: repeat !important;
+	}
 
 	h1 {
 		text-transform: uppercase;
