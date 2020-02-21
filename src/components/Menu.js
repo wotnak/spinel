@@ -1,4 +1,4 @@
-import { StaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, Link, graphql } from "gatsby"
 import React, { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
@@ -53,32 +53,28 @@ const Menu = ({ data, isFrontPage }) => {
   )
 }
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        menu: wordpressWpApiMenusMenusItems(slug: { eq: "menu-glowne" }) {
-          items {
+export default props => {
+  const data = useStaticQuery(graphql`
+    query {
+      menu: wordpressWpApiMenusMenusItems(slug: { eq: "menu-glowne" }) {
+        items {
+          title
+          url
+          children: wordpress_children {
+            object_id
             title
             url
-            children: wordpress_children {
-              object_id
-              title
-              url
-            }
           }
         }
       }
-    `}
-    render={data => {
-      if (data.menu.items[0].url !== "/") {
-        data.menu.items.unshift({
-          title: "Strona główna",
-          url: "/",
-          mobileOnly: true,
-        })
-      }
-      return <Menu data={data} {...props} />
-    }}
-  />
-)
+    }
+  `)
+  if (data.menu.items[0].url !== "/") {
+    data.menu.items.unshift({
+      title: "Strona główna",
+      url: "/",
+      mobileOnly: true,
+    })
+  }
+  return (<Menu data={data} {...props} />)
+}
