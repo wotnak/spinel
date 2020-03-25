@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Header from "../components/Header"
 import LatestBlogPostBlock from "../components/LatestBlogPostBlock"
+import ImportantInfoBlock from "../components/ImportantInfoBlock"
 import { Helmet } from "react-helmet"
 
 const PageTemplate = props => {
@@ -19,6 +20,7 @@ const PageTemplate = props => {
         )}
       </Helmet>
       <Header siteTitle={page.title} isFrontPage={isFrontPage} />
+      <ImportantInfoBlock />
       {props.path === "/" && <LatestBlogPostBlock />}
       <main dangerouslySetInnerHTML={{ __html: page.content }} />
     </Layout>
