@@ -2,6 +2,7 @@ import React from "react"
 import { StaticQuery, Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Header from "../components/Header"
+import ImportantInfoBlock from "../components/ImportantInfoBlock"
 import { Helmet } from "react-helmet"
 
 const Post = ({ post }) => (
@@ -27,6 +28,7 @@ const Blog = ({ posts }) => {
         <title>Blog | Spinel Hydraulika-Pneumatyka</title>
       </Helmet>
       <Header siteTitle="Blog firmowy" isFrontPage={false} />
+      <ImportantInfoBlock />
       {posts.map(post => (
         <Post post={post} />
       ))}
