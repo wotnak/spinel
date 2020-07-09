@@ -7,19 +7,18 @@ import ImportantInfoBlock from "../components/ImportantInfoBlock"
 import { Helmet } from "react-helmet"
 
 const PageTemplate = props => {
-  const page = props.data.wordpressPage
-  const isFrontPage = page.path === "/"
+  const page = props.data.wpPage
   return (
-    <Layout children={props.children} isFrontPage={isFrontPage}>
+    <Layout children={props.children} isFrontPage={page.isFrontPage}>
       <Helmet>
         <meta charSet="utf-8" />
-        {isFrontPage ? (
+        {page.isFrontPage ? (
           <title>Spinel Hydraulika-Pneumatyka</title>
         ) : (
           <title>{page.title.replace('<br>', '')} | Spinel Hydraulika-Pneumatyka</title>
         )}
       </Helmet>
-      <Header siteTitle={page.title} isFrontPage={isFrontPage} />
+      <Header siteTitle={page.title} isFrontPage={page.isFrontPage} />
       <ImportantInfoBlock />
       {props.path === "/" && <LatestBlogPostBlock />}
       <main dangerouslySetInnerHTML={{ __html: page.content }} />
@@ -31,10 +30,10 @@ export default PageTemplate
 
 export const pageQuery = graphql`
   query($id: String!) {
-    wordpressPage(id: { eq: $id }) {
+    wpPage(id: { eq: $id }) {
       title
       content
-      path
+      isFrontPage
     }
   }
 `

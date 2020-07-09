@@ -10,7 +10,7 @@ const MenuLevel = ({ items }) => {
     <ul>
       {items.map((item, i) => {
         let url = item.url.replace("https://panel.spinel.pl", "")
-        if (url.trim().length === 0) url = false
+        if (url.trim().length === 0 || url.indexOf('nolink') !== -1) url = false
         return (
           <li
             key={i}
@@ -30,7 +30,7 @@ const MenuLevel = ({ items }) => {
                 {item.title}
               </button>
             )}
-            {item.children ? <MenuLevel items={item.children} /> : null}
+            {item.children.length ? <MenuLevel items={item.children} /> : null}
           </li>
         )
       })}
@@ -38,7 +38,7 @@ const MenuLevel = ({ items }) => {
   )
 }
 
-const Menu = ({ data, isFrontPage }) => {
+const Menu = ({ items, isFrontPage }) => {
   const [visible, setVisible] = useState(false)
   return (
     <nav className={`site-menu ${visible ? "visible" : ""}`}>
@@ -48,7 +48,7 @@ const Menu = ({ data, isFrontPage }) => {
       <button onClick={() => setVisible(!visible)}>
         <FontAwesomeIcon icon={faBars} /> Menu
       </button>
-      <MenuLevel items={data.menu.items} />
+      <MenuLevel items={items} />
     </nav>
   )
 }
@@ -56,25 +56,43 @@ const Menu = ({ data, isFrontPage }) => {
 export default props => {
   const data = useStaticQuery(graphql`
     query {
-      menu: wordpressWpApiMenusMenusItems(slug: { eq: "menu-glowne" }) {
-        items {
-          title
+      allWpMenuItem(filter: {locations: {eq: PRIMARY}}) {
+        nodes {
+          key: id
+          parentId
+          title: label
           url
-          children: wordpress_children {
-            object_id
-            title
-            url
-          }
         }
       }
     }
   `)
-  if (data.menu.items[0].url !== "/") {
-    data.menu.items.unshift({
-      title: "Strona główna",
-      url: "/",
-      mobileOnly: true,
-    })
-  }
-  return (<Menu data={data} {...props} />)
+
+  const items = flatListToHierarchical(data.allWpMenuItem.nodes)
+  items.unshift({
+    title: "Strona główna",
+    url: "/",
+    mobileOnly: true,
+    children: [],
+  })
+  return (<Menu items={items} {...props} />)
 }
+
+const flatListToHierarchical = (
+    data = [],
+    {idKey='key',parentKey='parentId',childrenKey='children'} = {}
+) => {
+    const tree = [];
+    const childrenOf = {};
+    data.forEach((item) => {
+        const newItem = {...item};
+        const { [idKey]: id, [parentKey]: parentId = 0 } = newItem;
+        childrenOf[id] = childrenOf[id] || [];
+        newItem[childrenKey] = childrenOf[id];
+        parentId
+            ? (
+                childrenOf[parentId] = childrenOf[parentId] || []
+            ).push(newItem)
+            : tree.push(newItem);
+    });
+    return tree;
+};

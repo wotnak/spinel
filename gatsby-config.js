@@ -26,12 +26,18 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-wordpress`,
+      resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        baseUrl: `panel.spinel.pl`,
-        protocol: `https`,
-        hostingWPCOM: false,
-        useACF: false,
+        url: `https://panel.spinel.pl/graphql`,
+        verbose: true,
+        develop: {
+          hardCacheMediaFiles: true,
+        },
+        debug: {
+          graphql: {
+            writeQueriesToDisk: true,
+          },
+        },
       },
     },
     `gatsby-plugin-sass`,

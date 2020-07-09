@@ -67,3 +67,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# gatsby-source-wordpress-experimental cache
+.wordpress-cache
+WordPress

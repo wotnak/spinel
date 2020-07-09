@@ -30,7 +30,7 @@ const Blog = ({ posts }) => {
       <Header siteTitle="Blog firmowy" isFrontPage={false} />
       <ImportantInfoBlock />
       {posts.map(post => (
-        <Post post={post} />
+        <Post post={post} key={post.id} />
       ))}
     </Layout>
   )
@@ -40,21 +40,19 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allWordpressPost {
-          edges {
-            node {
-              id
-              slug
-              title
-              excerpt
-            }
+        allWpPost {
+          nodes {
+            id
+            slug
+            title
+            excerpt
           }
         }
       }
     `}
     render={data => (
       <Blog
-        posts={data.allWordpressPost.edges.map(edge => edge.node)}
+        posts={data.allWpPost.nodes}
         {...props}
       />
     )}

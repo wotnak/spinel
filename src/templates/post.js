@@ -6,7 +6,7 @@ import ImportantInfoBlock from "../components/ImportantInfoBlock"
 import { Helmet } from "react-helmet"
 
 const PostTemplate = props => {
-  const post = props.data.wordpressPost
+  const post = props.data.wpPost
   return (
     <Layout {...props}>
       <Helmet>
@@ -26,7 +26,7 @@ export default PostTemplate
 
 export const pageQuery = graphql`
   query($id: String!) {
-    wordpressPost(id: { eq: $id }) {
+    wpPost(id: { eq: $id }) {
       title
       content
     }
