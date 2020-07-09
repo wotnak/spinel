@@ -10,7 +10,7 @@ const MenuLevel = ({ items }) => {
     <ul>
       {items.map((item, i) => {
         let url = item.url.replace("https://panel.spinel.pl", "")
-        if (url.trim().length === 0) url = false
+        if (url.trim().length === 0 || url.indexOf('nolink') !== -1) url = false
         return (
           <li
             key={i}
