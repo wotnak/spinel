@@ -54,6 +54,7 @@ module.exports = {
         head: true,
         anonymize: true,
         respectDNT: true,
+        defer: true,
       },
     },
     `gatsby-plugin-sitemap`,
