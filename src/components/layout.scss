@@ -68,7 +68,7 @@ main {
 		}
 	}
 
-	ul>li {
+	&>ul>li {
 		border-left: 6px solid rgb(218,218,218);
 		background: rgb(246,246,246);
 		padding: 5px;
@@ -530,5 +530,8 @@ table td {
 	padding: 5px;
 }
 
+main h2 {
+	margin: 1rem 0;
+}
 
 @import './wordpress.scss'
