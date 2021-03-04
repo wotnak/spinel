@@ -539,4 +539,11 @@ main li>ul {
 	margin-left: 2rem;
 }
 
+main hr {
+	margin: 2rem;
+	border: none;
+	height: 1px;
+	background: $light_gray;
+}
+
 @import './wordpress.scss'
