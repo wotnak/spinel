@@ -534,4 +534,9 @@ main h2 {
 	margin: 1rem 0;
 }
 
+main li>ul {
+	list-style-type: circle;
+	margin-left: 2rem;
+}
+
 @import './wordpress.scss'
