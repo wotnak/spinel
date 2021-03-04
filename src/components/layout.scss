@@ -546,4 +546,10 @@ main hr {
 	background: $light_gray;
 }
 
+main h3 {
+	font-size: 15px;
+	color: $gray;
+}
+
+
 @import './wordpress.scss'
