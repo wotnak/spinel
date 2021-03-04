@@ -508,11 +508,16 @@ main {
 .block--important-info {
 	text-align: center;
 	padding: 8px;
-	background: transparentize($red, .82);
+	background-color: transparentize($red, .82);
 	outline: 1px solid transparentize($red, .58);
 	margin: 1rem auto;
+
+	background-image: url(../../assets/virus.png);
+	background-repeat: no-repeat;
+	background-position: 20px center;
+
 	em {
-		color: $red;
+		color: rgb(179,55,64);
 	}
 	strong {
 		font-weight: bold;	

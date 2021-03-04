@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
 
-export default ({ siteTitle, isFrontPage }) => {
+const Header = ({ siteTitle, isFrontPage }) => {
   const data = useStaticQuery(graphql`
       query {
         bg: file(relativePath: { eq: "headbg.png" }) {
@@ -32,3 +32,5 @@ export default ({ siteTitle, isFrontPage }) => {
     </BackgroundImage>
   )
 }
+
+export default Header

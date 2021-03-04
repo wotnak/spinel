@@ -20,7 +20,7 @@ const Post = ({ post }) => (
   </article>
 )
 
-const Blog = ({ posts }) => {
+const BlogLayout = ({ posts }) => {
   return (
     <Layout>
       <Helmet>
@@ -36,27 +36,27 @@ const Blog = ({ posts }) => {
   )
 }
 
-export default props => (
+const Blog = props => (
   <StaticQuery
     query={graphql`
       query {
-        allWordpressPost {
-          edges {
-            node {
-              id
-              slug
-              title
-              excerpt
-            }
+        allWpPost {
+          nodes {
+            id
+            slug
+            title
+            excerpt
           }
         }
       }
     `}
     render={data => (
-      <Blog
-        posts={data.allWordpressPost.edges.map(edge => edge.node)}
+      <BlogLayout
+        posts={data.allWpPost.nodes}
         {...props}
       />
     )}
   />
 )
+
+export default Blog

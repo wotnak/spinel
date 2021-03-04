@@ -6,13 +6,14 @@ module.exports = {
     siteUrl: `https://spinel.pl`,
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: { path: path.join(__dirname, `assets`) },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -28,10 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `panel.spinel.pl`,
-        protocol: `https`,
-        hostingWPCOM: false,
-        useACF: false,
+        url: `https://panel.spinel.pl/graphql`,
       },
     },
     `gatsby-plugin-sass`,

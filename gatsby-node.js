@@ -5,46 +5,38 @@ exports.createPages = async ({ graphql, actions }) => {
   // query content for WordPress posts
   const result = await graphql(`
     query {
-      allWordpressPage {
-        edges {
-          node {
-            id
-            slug
-            path
-          }
+      allWpPage {
+        nodes {
+          id
+          slug
+          uri
         }
       }
-      allWordpressPost {
-        edges {
-          node {
-            id
-            slug
-          }
+      allWpPost {
+        nodes {
+          id
+          slug
         }
-      }
-      wordpressWpFrontpage {
-        slug
       }
     }
   `)
   const postTemplate = path.resolve(`./src/templates/post.js`)
-  result.data.allWordpressPost.edges.forEach(edge => {
+  result.data.allWpPost.nodes.forEach(node => {
     createPage({
-      path: `/blog/${edge.node.slug}`,
+      path: `/blog/${node.slug}`,
       component: slash(postTemplate),
       context: {
-        id: edge.node.id,
+        id: node.id,
       },
     })
   })
   const pageTemplate = path.resolve(`./src/templates/page.js`)
-  result.data.allWordpressPage.edges.forEach(edge => {
-    const isFrontPage = edge.node.slug === result.data.wordpressWpFrontpage.slug
+  result.data.allWpPage.nodes.forEach(node => {
     createPage({
-      path: isFrontPage ? `/` : `${edge.node.path}`,
+      path: node.uri,
       component: slash(pageTemplate),
       context: {
-        id: edge.node.id,
+        id: node.id,
       },
     })
   })

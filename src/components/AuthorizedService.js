@@ -1,30 +1,24 @@
 import React from "react"
 
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-export default () => {
+const AuthorizedService = () => {
   const {baer, dhollandia, dautel} = useStaticQuery(graphql`
     query {
       baer: file(relativePath: { eq: "baer.png" }) {
         childImageSharp {
-          fixed(width: 119, height: 58) {
-            ...GatsbyImageSharpFixed_tracedSVG
-          }
+          gatsbyImageData(layout: FIXED, formats: [AUTO, WEBP, AVIF], width: 119, height: 58, placeholder: TRACED_SVG)
         }
       }
       dhollandia: file(relativePath: { eq: "dhollandia.png" }) {
         childImageSharp {
-          fixed(width: 150, height: 58) {
-            ...GatsbyImageSharpFixed_tracedSVG
-          }
+          gatsbyImageData(layout: FIXED, formats: [AUTO, WEBP, AVIF], width: 150, height: 58, placeholder: TRACED_SVG)
         }
       }
       dautel: file(relativePath: { eq: "dautel.png" }) {
         childImageSharp {
-          fixed(width: 150, height: 55) {
-            ...GatsbyImageSharpFixed_tracedSVG
-          }
+          gatsbyImageData(layout: FIXED, formats: [AUTO, WEBP, AVIF], width: 150, height: 55, placeholder: TRACED_SVG)
         }
       }
     }
@@ -32,9 +26,11 @@ export default () => {
   return (
     <div className="has-text-align-center authorized-service">
       <h2 className="special">Jesteśmy autoryzowanym serwisem firm</h2>
-      <Img fixed={baer.childImageSharp.fixed} alt="Baer Cargolift" />
-      <Img fixed={dhollandia.childImageSharp.fixed} alt="Dhollandia" />
-      <Img fixed={dautel.childImageSharp.fixed} alt="Dautel" />
+      <GatsbyImage image={baer.childImageSharp.gatsbyImageData} alt="Baer Cargolift" />
+      <GatsbyImage image={dhollandia.childImageSharp.gatsbyImageData} alt="Dhollandia" />
+      <GatsbyImage image={dautel.childImageSharp.gatsbyImageData} alt="Dautel" />
     </div>
   )
 }
+
+export default AuthorizedService

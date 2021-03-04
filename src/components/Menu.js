@@ -9,7 +9,7 @@ const MenuLevel = ({ items }) => {
   return (
     <ul>
       {items.map((item, i) => {
-        let url = item.url.replace("https://panel.spinel.pl", "")
+        let url = item.path.replace("https://panel.spinel.pl", "")
         if (url.trim().length === 0 || url.indexOf('nolink') !== -1) url = false
         return (
           <li
@@ -20,17 +20,17 @@ const MenuLevel = ({ items }) => {
           >
             {url !== false ? (
               <Link to={url} className="menu-item">
-                {item.title}
+                {item.label}
               </Link>
             ) : (
               <button
                 onClick={() => setExpanded(!expanded)}
                 className="menu-item"
               >
-                {item.title}
+                {item.label}
               </button>
             )}
-            {item.children ? <MenuLevel items={item.children} /> : null}
+            {(item.childItems && item.childItems.nodes.length) ? <MenuLevel items={item.childItems.nodes} /> : null}
           </li>
         )
       })}
@@ -38,7 +38,7 @@ const MenuLevel = ({ items }) => {
   )
 }
 
-const Menu = ({ data, isFrontPage }) => {
+const Menu = ({ menuItems, isFrontPage }) => {
   const [visible, setVisible] = useState(false)
   return (
     <nav className={`site-menu ${visible ? "visible" : ""}`}>
@@ -48,33 +48,40 @@ const Menu = ({ data, isFrontPage }) => {
       <button onClick={() => setVisible(!visible)}>
         <FontAwesomeIcon icon={faBars} /> Menu
       </button>
-      <MenuLevel items={data.menu.items} />
+      <MenuLevel items={menuItems} />
     </nav>
   )
 }
 
-export default props => {
+const MenuWrapper = props => {
   const data = useStaticQuery(graphql`
     query {
-      menu: wordpressWpApiMenusMenusItems(slug: { eq: "menu-glowne" }) {
-        items {
-          title
-          url
-          children: wordpress_children {
-            object_id
-            title
-            url
+      menu: wpMenu(slug: {eq: "menu-glowne"}) {
+        menuItems {
+          nodes {
+            label
+            path
+            parentId
+            childItems {
+              nodes {
+                label
+                path
+              }
+            }
           }
         }
       }
     }
   `)
-  if (data.menu.items[0].url !== "/") {
-    data.menu.items.unshift({
-      title: "Strona główna",
-      url: "/",
+  const menuItems = data.menu.menuItems.nodes.filter(menuItem => menuItem.parentId === null)
+  if (menuItems[0].url !== "/") {
+    menuItems.unshift({
+      label: "Strona główna",
+      path: "/",
       mobileOnly: true,
     })
   }
-  return (<Menu data={data} {...props} />)
+  return (<Menu menuItems={menuItems} {...props} />)
 }
+
+export default MenuWrapper

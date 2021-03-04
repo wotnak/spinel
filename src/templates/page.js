@@ -7,8 +7,8 @@ import ImportantInfoBlock from "../components/ImportantInfoBlock"
 import { Helmet } from "react-helmet"
 
 const PageTemplate = props => {
-  const page = props.data.wordpressPage
-  const isFrontPage = page.path === "/"
+  const page = props.data.wpPage
+  const isFrontPage = page.uri === "/"
   return (
     <Layout children={props.children} isFrontPage={isFrontPage}>
       <Helmet>
@@ -21,7 +21,7 @@ const PageTemplate = props => {
       </Helmet>
       <Header siteTitle={page.title} isFrontPage={isFrontPage} />
       <ImportantInfoBlock />
-      {props.path === "/" && <LatestBlogPostBlock />}
+      {props.uri === "/" && <LatestBlogPostBlock />}
       <main dangerouslySetInnerHTML={{ __html: page.content }} />
     </Layout>
   )
@@ -31,10 +31,10 @@ export default PageTemplate
 
 export const pageQuery = graphql`
   query($id: String!) {
-    wordpressPage(id: { eq: $id }) {
+    wpPage(id: { eq: $id }) {
       title
       content
-      path
+      uri
     }
   }
 `
