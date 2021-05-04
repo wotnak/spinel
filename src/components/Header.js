@@ -25,7 +25,7 @@ const Header = ({ siteTitle, isFrontPage }) => {
       {isFrontPage && (
         <p>
           Jesteśmy polską firmą rodzinną, działamy nieprzerwanie od 1988 roku.
-          <br />
+          &nbsp;<br />
           Zajmujemy się kompleksowo hydrauliką siłową i pneumatyką.
         </p>
       )}
