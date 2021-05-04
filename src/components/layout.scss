@@ -219,6 +219,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	padding: 0.5rem;
+	align-items: center;
 
 	a {
 		border-bottom: none;
@@ -228,10 +229,13 @@ main {
 			transform: scale(1.01);
 		}
 		img {
-			max-width: 225px;
-			max-height: 169px;
+			max-width: 203px;
+			max-height: 152px;
+			min-width: 203px;
+			min-height: 152px;
 			border-radius: 5px;
 			box-shadow: 0 0 5px $light_gray;
+			background-color: $light_gray;
 		}
 	}
 

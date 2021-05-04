@@ -30,6 +30,9 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: `https://panel.spinel.pl/graphql`,
+        html: {
+          useGatsbyImage: false,
+        }
       },
     },
     `gatsby-plugin-sass`,
