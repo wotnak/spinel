@@ -1,6 +1,11 @@
 const path = require(`path`)
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+  },
   siteMetadata: {
     title: `Spinel Hydrualika-Pneumatyka`,
     siteUrl: `https://spinel.pl`,
