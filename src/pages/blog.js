@@ -40,7 +40,7 @@ const Blog = props => (
   <StaticQuery
     query={graphql`
       query {
-        allWpPost {
+        allWpPost(sort: {fields: date, order: DESC}, filter: {status: {eq: "publish"}}) {
           nodes {
             id
             slug
