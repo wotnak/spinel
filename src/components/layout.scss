@@ -575,6 +575,9 @@ main h3 {
 	font-size: 15px;
 	color: $gray;
 }
+.post h2.special {
+	padding-left: 0;
+}
 
 
 @import './wordpress.scss'
