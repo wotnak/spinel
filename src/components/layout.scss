@@ -579,5 +579,19 @@ main h3 {
 	padding-left: 0;
 }
 
+.toc {
+	margin: 1rem 0;
+	@media (min-width: 700px) {
+		padding: 0 100px;
+	}
+	ol {
+		list-style: decimal;
+		list-style-position: inside;
+		li {
+			margin-left: 1rem;
+		}
+	}
+}
+
 
 @import './wordpress.scss'

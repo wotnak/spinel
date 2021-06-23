@@ -44,6 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@gatsbyjs/reach-router", "virtual:65a1ef21d93c1457baec22462b13fb26dd12c3ef4dabd53a822c32ec39f4fc72f595142ec34b12f0106bec039453140ee7748c04c3f8e076e7870f592b307409#npm:1.3.6"],
             ["@mikaelkristiansson/domready", "npm:1.0.11"],
             ["anser", "npm:2.0.1"],
+            ["cheerio", "npm:1.0.0-rc.10"],
             ["css.escape", "npm:1.5.1"],
             ["event-source-polyfill", "npm:1.0.24"],
             ["gatsby", "virtual:65a1ef21d93c1457baec22462b13fb26dd12c3ef4dabd53a822c32ec39f4fc72f595142ec34b12f0106bec039453140ee7748c04c3f8e076e7870f592b307409#npm:3.6.2"],
@@ -7172,6 +7173,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["cheerio", [
+        ["npm:1.0.0-rc.10", {
+          "packageLocation": "./.yarn/cache/cheerio-npm-1.0.0-rc.10-7461d63143-699dcf9d44.zip/node_modules/cheerio/",
+          "packageDependencies": [
+            ["cheerio", "npm:1.0.0-rc.10"],
+            ["cheerio-select", "npm:1.5.0"],
+            ["dom-serializer", "npm:1.3.2"],
+            ["domhandler", "npm:4.2.0"],
+            ["htmlparser2", "npm:6.1.0"],
+            ["parse5", "npm:6.0.1"],
+            ["parse5-htmlparser2-tree-adapter", "npm:6.0.1"],
+            ["tslib", "npm:2.2.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:1.0.0-rc.9", {
           "packageLocation": "./.yarn/cache/cheerio-npm-1.0.0-rc.9-64a9a8c425-0fafd41c80.zip/node_modules/cheerio/",
           "packageDependencies": [
@@ -7197,6 +7212,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["domelementtype", "npm:2.2.0"],
             ["domhandler", "npm:4.2.0"],
             ["domutils", "npm:2.6.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:1.5.0", {
+          "packageLocation": "./.yarn/cache/cheerio-select-npm-1.5.0-e3f0416bf1-da0a1cb2d6.zip/node_modules/cheerio-select/",
+          "packageDependencies": [
+            ["cheerio-select", "npm:1.5.0"],
+            ["css-select", "npm:4.1.3"],
+            ["css-what", "npm:5.0.1"],
+            ["domelementtype", "npm:2.2.0"],
+            ["domhandler", "npm:4.2.0"],
+            ["domutils", "npm:2.7.0"]
           ],
           "linkType": "HARD",
         }]
@@ -8169,6 +8196,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nth-check", "npm:2.0.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:4.1.3", {
+          "packageLocation": "./.yarn/cache/css-select-npm-4.1.3-97d7b817c1-0259932ad2.zip/node_modules/css-select/",
+          "packageDependencies": [
+            ["css-select", "npm:4.1.3"],
+            ["boolbase", "npm:1.0.0"],
+            ["css-what", "npm:5.0.0"],
+            ["domhandler", "npm:4.2.0"],
+            ["domutils", "npm:2.6.0"],
+            ["nth-check", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["css-select-base-adapter", [
@@ -8219,6 +8258,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/css-what-npm-5.0.0-7ddd4a5233-e41b63a3eb.zip/node_modules/css-what/",
           "packageDependencies": [
             ["css-what", "npm:5.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:5.0.1", {
+          "packageLocation": "./.yarn/cache/css-what-npm-5.0.1-66d2e8ba46-051bcda396.zip/node_modules/css-what/",
+          "packageDependencies": [
+            ["css-what", "npm:5.0.1"]
           ],
           "linkType": "HARD",
         }]
@@ -9127,6 +9173,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["entities", "npm:2.2.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:1.3.2", {
+          "packageLocation": "./.yarn/cache/dom-serializer-npm-1.3.2-133de2b9ce-1a5d6970d2.zip/node_modules/dom-serializer/",
+          "packageDependencies": [
+            ["dom-serializer", "npm:1.3.2"],
+            ["domelementtype", "npm:2.2.0"],
+            ["domhandler", "npm:4.2.0"],
+            ["entities", "npm:2.2.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["dom-walk", [
@@ -9186,6 +9242,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/domutils-npm-2.6.0-7eb389c806-9da9185109.zip/node_modules/domutils/",
           "packageDependencies": [
             ["domutils", "npm:2.6.0"],
+            ["dom-serializer", "npm:1.3.1"],
+            ["domelementtype", "npm:2.2.0"],
+            ["domhandler", "npm:4.2.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.7.0", {
+          "packageLocation": "./.yarn/cache/domutils-npm-2.7.0-31a28e89d6-b7c6cbd485.zip/node_modules/domutils/",
+          "packageDependencies": [
+            ["domutils", "npm:2.7.0"],
             ["dom-serializer", "npm:1.3.1"],
             ["domelementtype", "npm:2.2.0"],
             ["domhandler", "npm:4.2.0"]
@@ -21840,6 +21906,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@gatsbyjs/reach-router", "virtual:65a1ef21d93c1457baec22462b13fb26dd12c3ef4dabd53a822c32ec39f4fc72f595142ec34b12f0106bec039453140ee7748c04c3f8e076e7870f592b307409#npm:1.3.6"],
             ["@mikaelkristiansson/domready", "npm:1.0.11"],
             ["anser", "npm:2.0.1"],
+            ["cheerio", "npm:1.0.0-rc.10"],
             ["css.escape", "npm:1.5.1"],
             ["event-source-polyfill", "npm:1.0.24"],
             ["gatsby", "virtual:65a1ef21d93c1457baec22462b13fb26dd12c3ef4dabd53a822c32ec39f4fc72f595142ec34b12f0106bec039453140ee7748c04c3f8e076e7870f592b307409#npm:3.6.2"],
