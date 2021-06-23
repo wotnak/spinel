@@ -63,6 +63,7 @@ module.exports = {
         anonymize: true,
         respectDNT: true,
         defer: true,
+        enableWebVitalsTracking: true,
       },
     },
     `gatsby-plugin-sitemap`,
